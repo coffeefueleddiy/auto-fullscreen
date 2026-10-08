@@ -79,6 +79,26 @@
                 */
             }
         }, false);
+
+        // Attempt to auto-play fullscreen video on page load
+        document.addEventListener("DOMContentLoaded", (event) => {
+            if (marioVideo.requestFullscreen) {
+                marioVideo.requestFullscreen();
+            }
+            else if (marioVideo.msRequestFullscreen) {
+                marioVideo.msRequestFullscreen();
+            }
+            else if (marioVideo.mozRequestFullScreen) {
+                marioVideo.mozRequestFullScreen();
+            }
+            else if (marioVideo.webkitRequestFullScreen) {
+                marioVideo.webkitRequestFullScreen();
+                /*
+                    *Kept here for reference: keyboard support in full screen
+                    * marioVideo.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                */
+            }
+        });
     }
 })();
 
